@@ -1,10 +1,7 @@
 class Solution:
     def countDigits(self, num: int) -> int:
-        set = {}
-        for digit in str(num):
-            if num%int(digit)==0:
-                if set.get(digit) is None:
-                    set[digit] = 1
-                else:
-                    set[digit] += 1
-        return sum(set.values())
+        return sum(
+            1
+            for ch in str(num)
+            if ch != "0" and num % int(ch) == 0
+        )
