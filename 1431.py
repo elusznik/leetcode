@@ -1,12 +1,8 @@
 class Solution:
     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
-        max=0
-        res=[]
-        for kid in candies:
-            if kid>max:
-                max=kid
+        maximum=max(candies)
         for i,kid in enumerate(candies):
-            if kid+extraCandies>=max:
+            if kid+extraCandies>=maximum:
                 candies[i]=True
             else:
                 candies[i]=False
