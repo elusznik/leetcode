@@ -1,16 +1,13 @@
 class Solution:
     def maxVowels(self, s: str, k: int) -> int:
-        vowels = set(list("aeiou"))
+        vowels = set(['a','e','i','o','u'])
         start=0
         end=k
         substring=0
-        for i in range(start,end):
-            if s[i] in vowels:
-                substring+=1
+        substring=sum(1 for i in s[:k] if i in vowels)
         max_substring=substring             
         for end in range(k,len(s)):
-            if substring>max_substring:
-                max_substring=substring
+            max_substring=max(max_substring, substring)
             if max_substring==k:
                 return k
             if s[start] in vowels:
