@@ -4,10 +4,7 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         write = 0
-        for value in nums:
-            if value != 0:
-                nums[write] = value
+        for read in range(len(nums)):
+            if nums[read]:
+                nums[write], nums[read] = nums[read], nums[write]
                 write += 1
-
-        for i in range(write, len(nums)):
-            nums[i] = 0
