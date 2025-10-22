@@ -11,6 +11,8 @@ class Solution:
         for i in range(len(s)-k+1):
             if substring>max_substring:
                 max_substring=substring
+            if max_substring==k:
+                return k
             if s[start] in vowels:
                 substring-=1
             if end<len(s) and s[end] in vowels:
