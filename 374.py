@@ -7,4 +7,15 @@
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        return __pick__
+        start=0
+        end=n
+        while start<=end:
+            mid=start+(end-start)//2
+            res=guess(mid)
+            if res==0:
+                return mid
+            elif res==1:
+                start=mid+1
+            else:
+                end=mid-1
+        return -1
