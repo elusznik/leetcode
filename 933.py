@@ -5,7 +5,8 @@ class RecentCounter:
 
     def ping(self, t: int) -> int:
         count=0
-        i=0
+        if self.requests and t-3000>=self.requests[-1]:
+            self.requests.clear()
         self.requests.append(t)
         for req in self.requests:
             if req>=t-3000:
