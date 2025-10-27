@@ -4,8 +4,7 @@ class RecentCounter:
 
     def ping(self, t: int) -> int:
         self.requests.append(t)
-        window_start = t - 3000
-        while self.requests and self.requests[0] < window_start:
+        while self.requests and self.requests[0] < t-3000:
             self.requests.pop(0)
         return len(self.requests)
 
